@@ -1,0 +1,18 @@
+{
+  "name": "lametric-ptv",
+  "version": "1.0.0",
+  "description": "Simple Lambda to convert PTV next 5 into La Metric format",
+  "main": "index.js",
+  "repository": "git@github.com:bobbysciacchitano/lametric-ptv.git",
+  "author": "Bobby Sciacchitano <hello@bobbysciacchitano.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^4.14.0",
+    "dotenv": "^4.0.0"
+  },
+  "dependencies": {
+    "moment": "^2.20.1",
+    "moment-timezone": "^0.5.14"
+  }
+}
