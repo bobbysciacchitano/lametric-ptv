@@ -4,13 +4,13 @@ const moment = require('moment-timezone');
 
 const env = process.env;
 
-const baseUrl      = env.NB_URL;
-const routeTypeId  = env.NB_ROUTE_TYPE_ID;
-const stopId       = env.NB_STOP_ID;
-const devId        = env.NB_DEV_ID;
-const devKey       = env.NB_DEV_KEY;
-const timezone     = env.NB_TIMEZONE;
-const routeNumbers = JSON.parse(env.NB_ROUTES);
+const baseUrl       = env.NB_URL;
+const routeTypeId   = env.NB_ROUTE_TYPE_ID;
+const stopId        = env.NB_STOP_ID;
+const devId         = env.NB_DEV_ID;
+const devKey        = env.NB_DEV_KEY;
+const timezone      = env.NB_TIMEZONE;
+const routeNumbers  = JSON.parse(env.NB_ROUTES) || {};
 const interfaceIcon = 'i5420';
 
 const createSignature = (path) => (
@@ -47,7 +47,7 @@ module.exports = () => (
 						isEstimated: !!departure.estimated_departure_utc,
 					};
 				}).filter((depature) => {
-					return moment(depature.time).isSameOrAfter(moment());
+					return moment(depature.time).isSameOrAfter(moment().utc());
 				}).sort((previous, next) => {
 					if (moment(previous.time).isBefore(moment(next.time))) {
 						return -1;
