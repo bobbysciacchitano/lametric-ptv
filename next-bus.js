@@ -64,7 +64,7 @@ module.exports = () => (
 					resolve({
 						frames: [{
 							icon: interfaceIcon,
-							text: 'No departure information available',
+							text: '',
 						}],
 					});
 
@@ -72,12 +72,12 @@ module.exports = () => (
 				}
 
 				const next = departures[0];
-				const countdown = moment(next.time).tz(timezone).fromNow();
+				const countdown = moment(next.time).tz(timezone).fromNow(true);
 
 				const dataset = {
 					frames: [{
 						icon: interfaceIcon,
-						text: `Next bus ${countdown}`,
+						text: countdown,
 					}],
 				};
 
